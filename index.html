@@ -818,81 +818,123 @@
 
     /* ── PRICING ─────────────────────────────── */
     .tiers {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
-      overflow: hidden;
-    }
-    .tier {
       display: grid;
-      grid-template-columns: 160px 100px 1fr 160px;
-      align-items: center;
-      gap: 24px;
-      padding: 24px 28px;
-      border-bottom: 1px solid var(--border);
-      background: var(--surface);
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
-    .tier:last-child { border-bottom: none; }
-    .tier.current { background: var(--surface-raised); box-shadow: inset 0 0 0 1px var(--border-glow); }
-    .tier.gone { opacity: .35; }
-    .tier-label {
+    .tier-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 36px 28px 28px;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      position: relative;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+      transition: border-color 0.3s ease;
     }
-    .tier-tag {
+    .tier-card:hover {
+      border-color: rgba(100,180,200,0.2);
+    }
+    .tier-card.popular {
+      border-color: var(--gold);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3), 0 0 20px rgba(201,168,76,0.08);
+    }
+    .tier-badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--bg);
       font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 3px;
+      font-weight: 700;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--muted);
+      padding: 5px 16px;
+      white-space: nowrap;
     }
-    .tier-name-text { font-size: 14px; font-weight: 600; color: var(--white); }
-    .tier-price-text {
-      font-size: 22px;
+    .tier-card-header {
+      text-align: center;
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .tier-card-name {
+      font-size: 20px;
       font-weight: 800;
       color: var(--white);
+      margin-bottom: 4px;
     }
-    .tier-price-text.free { color: var(--accent); }
-    .tier-spot {
+    .tier-card-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .tier-card-price {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+    }
+    .tier-card-price-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .tier-card-features {
+      list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 12px;
+      margin-bottom: 28px;
+      flex: 1;
     }
-    .spot-track {
-      height: 4px;
-      background: var(--border);
-      width: 100%;
+    .tier-card-features li {
+      font-size: 14px;
+      color: var(--dim);
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      line-height: 1.4;
     }
-    .spot-fill { height: 100%; background: var(--gold); }
-    .spot-fill.depleted { background: var(--muted); }
-    .spot-text {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--muted);
-      letter-spacing: 1px;
+    .tier-card-features li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      position: relative;
+      top: -1px;
     }
-    .spot-text.urgent { color: var(--gold); font-weight: 700; }
-    .tier-cta a, .tier-cta span {
+    .tier-card-features li.excluded {
+      color: rgba(122,138,155,0.4);
+      text-decoration: line-through;
+      text-decoration-color: rgba(122,138,155,0.3);
+    }
+    .tier-card-features li.excluded::before {
+      background: rgba(122,138,155,0.2);
+    }
+    .tier-card-cta a {
       display: block;
       text-align: center;
-      padding: 10px 0;
+      padding: 14px 0;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
       text-decoration: none;
       cursor: pointer;
       background: var(--white);
       color: var(--bg);
       border: none;
-      transition: background .15s;
+      transition: all .15s;
     }
-    .tier-cta a:hover { background: #e0e0e0; }
-    .tier-cta .closed-btn {
-      background: var(--border);
-      color: var(--muted);
-      cursor: not-allowed;
+    .tier-card-cta a:hover { background: #e0e0e0; }
+    .tier-card.popular .tier-card-cta a {
+      background: var(--gold);
+      color: var(--bg);
+    }
+    .tier-card.popular .tier-card-cta a:hover {
+      background: #b8953f;
     }
     .pricing-footnote {
       margin-top: 20px;
@@ -1143,8 +1185,8 @@
       .steps { grid-template-columns: 1fr; }
       .hood-grid { grid-template-columns: 1fr; gap: 32px; }
       .hood-container { padding: 0 20px; }
-      .tier { grid-template-columns: 1fr 80px; gap: 12px; }
-      .tier-spot { display: none; }
+      .tiers { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .tier-card { padding: 28px 24px 24px; }
 
       h2 { font-size: 32px; }
       .final-cta h2 { font-size: 36px; }
@@ -1469,46 +1511,82 @@
     <p class="section-sub">From self-serve to fully managed. Pick what fits.</p>
 
     <div class="tiers">
-      <div class="tier current">
-        <div class="tier-label">
-          <span class="tier-tag">SELF-SERVE</span>
-          <span class="tier-name-text">Iris Core</span>
+      <!-- CORE -->
+      <div class="tier-card">
+        <div class="tier-card-header">
+          <div class="tier-card-sub">SELF-SERVE</div>
+          <div class="tier-card-name">Iris Core</div>
+          <div class="tier-card-price">$47</div>
+          <div class="tier-card-price-note">One-time purchase</div>
         </div>
-        <div class="tier-price-text">$47</div>
-        <div class="tier-spot">
-          <div style="font-size:13px; color:var(--dim); line-height:1.6;">
-            Full accountability engine. Memory. Personality. Check-ins. Streaks. She tracks what you say and holds you to it. Runs inside Claude Desktop.
-          </div>
-        </div>
-        <div class="tier-cta"><a href="https://heyitsiris.lemonsqueezy.com/checkout/buy/b8dcdac5-0695-48d6-aed9-897441289d05" target="_blank">Get Iris Core</a></div>
+        <ul class="tier-card-features">
+          <li>Accountability engine</li>
+          <li>Daily check-ins and streaks</li>
+          <li>Persistent memory</li>
+          <li>Full personality layer</li>
+          <li>Runs inside Claude Desktop</li>
+          <li class="excluded">Telegram agent</li>
+          <li class="excluded">Content pipeline</li>
+          <li class="excluded">Email management</li>
+          <li class="excluded">Task management</li>
+          <li class="excluded">Extensible skills</li>
+          <li class="excluded">Dedicated hardware</li>
+          <li class="excluded">Custom integrations</li>
+        </ul>
+        <div class="tier-card-cta"><a href="https://heyitsiris.lemonsqueezy.com/checkout/buy/b8dcdac5-0695-48d6-aed9-897441289d05" target="_blank">Get Iris Core</a></div>
       </div>
 
-      <div class="tier">
-        <div class="tier-label">
-          <span class="tier-tag">FULL SYSTEM</span>
-          <span class="tier-name-text">Iris Pro</span>
+      <!-- PRO (Most Popular) -->
+      <div class="tier-card popular">
+        <div class="tier-badge">Most Popular</div>
+        <div class="tier-card-header">
+          <div class="tier-card-sub">FULL SYSTEM</div>
+          <div class="tier-card-name">Iris Pro</div>
+          <div class="tier-card-price">$997</div>
+          <div class="tier-card-price-note">One-time purchase</div>
         </div>
-        <div class="tier-price-text">$997</div>
-        <div class="tier-spot">
-          <div style="font-size:13px; color:var(--dim); line-height:1.6;">
-            Everything in Core plus a full operating system. Live agent via Telegram. Content pipeline. Email. Task management. Skills you can add and extend. Iris becomes your entire back office.
-          </div>
-        </div>
-        <div class="tier-cta"><a href="https://heyitsiris.lemonsqueezy.com/checkout/buy/9bd1acf9-1699-459f-b8a5-53b2ee9ded1d" target="_blank">Get Iris Pro</a></div>
+        <ul class="tier-card-features">
+          <li>Accountability engine</li>
+          <li>Daily check-ins and streaks</li>
+          <li>Persistent memory</li>
+          <li>Full personality layer</li>
+          <li>Runs inside Claude Desktop</li>
+          <li>Live agent via Telegram</li>
+          <li>Content pipeline</li>
+          <li>Email management</li>
+          <li>Task management</li>
+          <li>Extensible skills</li>
+          <li class="excluded">Dedicated hardware</li>
+          <li class="excluded">Custom integrations</li>
+        </ul>
+        <div class="tier-card-cta"><a href="https://heyitsiris.lemonsqueezy.com/checkout/buy/9bd1acf9-1699-459f-b8a5-53b2ee9ded1d" target="_blank">Get Iris Pro</a></div>
       </div>
 
-      <div class="tier">
-        <div class="tier-label">
-          <span class="tier-tag">FULLY MANAGED</span>
-          <span class="tier-name-text">Iris Enterprise</span>
+      <!-- ENTERPRISE -->
+      <div class="tier-card">
+        <div class="tier-card-header">
+          <div class="tier-card-sub">FULLY MANAGED</div>
+          <div class="tier-card-name">Iris Enterprise</div>
+          <div class="tier-card-price">Custom</div>
+          <div class="tier-card-price-note">$3,500 setup + $500/mo</div>
         </div>
-        <div class="tier-price-text" style="font-size:18px;">Custom</div>
-        <div class="tier-spot">
-          <div style="font-size:13px; color:var(--dim); line-height:1.6;">
-            Dedicated Mac Mini Pro. Custom-built agent tailored to your workflows. We handle setup, integrations, memory, and ongoing optimization. 24/7 monitoring. Monthly skill upgrades. A fully managed AI teammate.
-          </div>
-        </div>
-        <div class="tier-cta"><a href="mailto:hello@heyitsiris.com">Talk to Our Team</a></div>
+        <ul class="tier-card-features">
+          <li>Accountability engine</li>
+          <li>Daily check-ins and streaks</li>
+          <li>Persistent memory</li>
+          <li>Full personality layer</li>
+          <li>Runs inside Claude Desktop</li>
+          <li>Live agent via Telegram</li>
+          <li>Content pipeline</li>
+          <li>Email management</li>
+          <li>Task management</li>
+          <li>Extensible skills</li>
+          <li>Dedicated Mac Mini Pro</li>
+          <li>Custom-built integrations</li>
+          <li>24/7 monitoring</li>
+          <li>Monthly skill upgrades</li>
+        </ul>
+        <div class="tier-card-cta"><a href="mailto:hello@heyitsiris.com">Talk to Our Team</a></div>
       </div>
     </div>
 
