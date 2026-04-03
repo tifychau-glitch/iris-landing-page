@@ -871,8 +871,8 @@
     /* ── PRICING ─────────────────────────────── */
     .tiers {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
     }
     .tier-card {
       background: var(--surface);
@@ -1480,6 +1480,7 @@
       .hood-grid { grid-template-columns: 1fr; gap: 32px; }
       .hood-container { padding: 0 20px; }
       .tiers { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .tiers-4col { grid-template-columns: 1fr; }
       .tier-card { padding: 28px 24px 24px; }
 
       .pain-mirror-section { padding: 80px 0; }
@@ -1585,7 +1586,7 @@
   <div class="what-is-inner">
     <p class="what-is-label">What is this</p>
     <p class="what-is-text">Iris is an <strong>AI accountability partner</strong> that lives on your computer. You tell her what you're working on. She remembers what you commit to and follows up when you don't.</p>
-    <p class="what-is-note">No app to download. No subscription. One conversation that actually continues.</p>
+    <p class="what-is-note">Start free with Core. No app to download. No subscription. One conversation that actually continues.</p>
   </div>
 </section>
 
@@ -1930,38 +1931,34 @@
 <section class="content" id="pricing">
   <div class="container">
     <div class="section-label">Pricing</div>
-    <h2>Three ways to work with Iris.</h2>
-    <p class="section-sub">From self-serve to fully managed. Pick what fits.</p>
+    <h2>Four ways to work with Iris.</h2>
+    <p class="section-sub">From free to fully managed. Pick what fits.</p>
 
-    <p class="value-framing">A real accountability coach costs $500&ndash;$1,500/month and can't interrupt you mid-doom-scroll. A mastermind group gives you more information to not act on. Iris is a one-time payment. She runs 24/7 and she doesn't accept "I got busy" as an answer.</p>
+    <p class="value-framing">A real accountability coach costs $500&ndash;$1,500/month and can't interrupt you mid-doom-scroll. A mastermind group gives you more information to not act on. Iris Core is free. Pro and Plus are one-time payments. She runs 24/7 and she doesn't accept "I got busy" as an answer.</p>
 
     <div class="tiers">
-      <!-- CORE -->
+      <!-- CORE (Free) -->
       <div class="tier-card">
         <div class="tier-card-header">
-          <div class="tier-card-sub">SELF-SERVE</div>
+          <div class="tier-card-sub">FREE</div>
           <div class="tier-card-name">Iris Core</div>
-          <div class="tier-card-price">$147</div>
-          <div class="tier-card-price-note">One-time purchase</div>
+          <div class="tier-card-price" style="color:var(--gold);">Free</div>
+          <div class="tier-card-price-note">No credit card required</div>
         </div>
         <ul class="tier-card-features">
-          <li>Accountability engine</li>
-          <li>Daily check-ins and streaks</li>
-          <li>Persistent memory</li>
-          <li>Full personality layer</li>
-          <li>Telegram agent</li>
-          <li>Runs inside Claude Desktop</li>
-          <li class="excluded">Preloaded skill library</li>
-          <li class="excluded">Calendar planning system</li>
+          <li>Hosted Telegram bot &mdash; zero setup</li>
+          <li>AI accountability engine</li>
+          <li>Daily check-ins &amp; commitment tracking</li>
+          <li>Just message the bot and go</li>
+          <li class="excluded">Full AI OS with 11 skills</li>
+          <li class="excluded">Persistent memory</li>
           <li class="excluded">Content pipeline</li>
-          <li class="excluded">Email management</li>
-          <li class="excluded">Task management</li>
+          <li class="excluded">Research &amp; lead gen</li>
+          <li class="excluded">1:1 onboarding call</li>
+          <li class="excluded">Private Slack support</li>
           <li class="excluded">Dedicated hardware</li>
-          <li class="excluded">Custom integrations</li>
-          <li class="excluded">Ongoing maintenance</li>
         </ul>
-        <div class="tier-card-cta"><a href="https://heyitsiris.lemonsqueezy.com/checkout/buy/b8dcdac5-0695-48d6-aed9-897441289d05" target="_blank">Get Iris Core</a></div>
-        <p class="cta-micro" style="text-align:center; margin-top:10px;">Click once. You'll get your download link instantly. From unzip to first conversation is about six steps.</p>
+        <div class="tier-card-cta"><a href="#" target="_blank">Get Started Free</a></div>
       </div>
 
       <!-- PRO (Most Popular) -->
@@ -1970,27 +1967,47 @@
         <div class="tier-card-header">
           <div class="tier-card-sub">FULL SYSTEM</div>
           <div class="tier-card-name">Iris Pro</div>
-          <div class="tier-card-price">$497</div>
-          <div class="tier-card-price-note">One-time purchase</div>
+          <div class="tier-card-price">$797</div>
+          <div class="tier-card-price-note">One-time &middot; Lifetime access</div>
         </div>
         <ul class="tier-card-features">
-          <li>Accountability engine</li>
-          <li>Daily check-ins and streaks</li>
-          <li>Persistent memory</li>
-          <li>Full personality layer</li>
-          <li>Telegram agent</li>
-          <li>Runs inside Claude Desktop</li>
-          <li>Preloaded skill library</li>
-          <li>Calendar planning system</li>
-          <li>Content pipeline</li>
-          <li>Email management</li>
-          <li>Task management</li>
+          <li>Full AI OS with 11 prebuilt skills</li>
+          <li>Research, content, lead gen, task management</li>
+          <li>Pinecone-powered persistent memory</li>
+          <li>Telegram integration &amp; mobile access</li>
+          <li>Accountability engine with dynamic personality</li>
+          <li>Skill creator &mdash; build your own workflows</li>
+          <li>Website &amp; app builder frameworks</li>
+          <li class="excluded">1:1 onboarding call</li>
+          <li class="excluded">Private Slack support</li>
+          <li class="excluded">Early access to new skills</li>
           <li class="excluded">Dedicated hardware</li>
-          <li class="excluded">Custom integrations</li>
-          <li class="excluded">Ongoing maintenance</li>
         </ul>
         <div class="tier-card-cta"><a href="https://heyitsiris.lemonsqueezy.com/checkout/buy/9bd1acf9-1699-459f-b8a5-53b2ee9ded1d" target="_blank">Get Iris Pro</a></div>
         <p class="cta-micro" style="text-align:center; margin-top:10px;">Click once. You'll get your download link instantly. From unzip to first conversation is about six steps.</p>
+      </div>
+
+      <!-- PLUS (White Glove) -->
+      <div class="tier-card popular">
+        <div class="tier-badge" style="background:linear-gradient(135deg, #b8942e, #d4a830);">White Glove</div>
+        <div class="tier-card-header">
+          <div class="tier-card-sub">PRO + SUPPORT</div>
+          <div class="tier-card-name">Iris Plus</div>
+          <div class="tier-card-price">$1,497</div>
+          <div class="tier-card-price-note">One-time &middot; Lifetime access</div>
+        </div>
+        <ul class="tier-card-features">
+          <li>Everything in Pro</li>
+          <li>90-minute 1:1 onboarding call</li>
+          <li>30 days of private Slack support</li>
+          <li>Early access to new skills (60 days before Pro)</li>
+          <li>Personalized setup &amp; workflow design</li>
+          <li class="excluded">Dedicated hardware</li>
+          <li class="excluded">Custom integrations</li>
+          <li class="excluded">Ongoing managed service</li>
+        </ul>
+        <div class="tier-card-cta"><a href="#" target="_blank" style="background:linear-gradient(135deg, #b8942e, #d4a830);">Get Iris Plus</a></div>
+        <p class="cta-micro" style="text-align:center; margin-top:10px;">Includes everything in Pro plus hands-on onboarding and direct support.</p>
       </div>
 
       <!-- ENTERPRISE -->
@@ -1998,36 +2015,28 @@
         <div class="tier-card-header">
           <div class="tier-card-sub">FULLY MANAGED</div>
           <div class="tier-card-name">Iris Enterprise</div>
-          <div class="tier-card-price">Custom</div>
-          <div class="tier-card-price-note"></div>
+          <div class="tier-card-price">$5,000</div>
+          <div class="tier-card-price-note">Setup + $500/mo maintenance</div>
         </div>
         <ul class="tier-card-features">
-          <li>Accountability engine</li>
-          <li>Daily check-ins and streaks</li>
-          <li>Persistent memory</li>
-          <li>Full personality layer</li>
-          <li>Telegram agent</li>
-          <li>Runs inside Claude Desktop</li>
-          <li>Preloaded skill library</li>
-          <li>Calendar planning system</li>
-          <li>Content pipeline</li>
-          <li>Email management</li>
-          <li>Task management</li>
+          <li>White glove managed service</li>
+          <li>Custom Iris build for your business</li>
+          <li>Ongoing maintenance &amp; consultation</li>
+          <li>Priority support &amp; dedicated access</li>
           <li>Dedicated Mac Mini Pro</li>
           <li>Custom-built integrations</li>
           <li>24/7 monitoring</li>
-          <li>Ongoing maintenance and upgrades</li>
           <li>Monthly skill improvements</li>
         </ul>
-        <div class="tier-card-cta"><a href="mailto:hello@heyitsiris.com">Talk to Our Team</a></div>
+        <div class="tier-card-cta"><a href="mailto:hello@heyitsiris.com">Apply for Enterprise</a></div>
       </div>
     </div>
 
-    <p class="pricing-footnote">Core and Pro are one-time purchases &middot; Enterprise is custom-quoted</p>
+    <p class="pricing-footnote">Core is free forever &middot; Pro and Plus are one-time purchases &middot; Enterprise is application-only</p>
 
     <div class="guarantee-box">
       <div class="guarantee-title">7-Day Money-Back Guarantee</div>
-      <p>Try Iris for 7 days. If she hasn't caught you mid-drift, called out a pattern you'd rather ignore, or reminded you of something you said you'd do... email us. Full refund. No exit survey. No guilt trip. You shouldn't pay for something that doesn't work. We're only able to offer this because we know she will.</p>
+      <p>Try Iris Pro or Plus for 7 days. If she hasn't caught you mid-drift, called out a pattern you'd rather ignore, or reminded you of something you said you'd do... email us. Full refund. No exit survey. No guilt trip. You shouldn't pay for something that doesn't work. We're only able to offer this because we know she will.</p>
     </div>
   </div>
 </section>
@@ -2040,16 +2049,16 @@
   <div class="container">
     <div class="section-label">What You'll Pay</div>
     <h2>Full transparency. No surprises.</h2>
-    <p class="section-sub">Iris is a one-time purchase. But she runs on Claude, so here's the complete picture.</p>
+    <p class="section-sub">Core is free. Pro and Plus are one-time purchases. But they run on Claude, so here's the complete picture.</p>
 
     <div class="faq-list" style="margin-bottom:0;">
       <div class="faq-item" style="border-bottom:1px solid var(--border); padding:20px 0;">
         <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px;">
           <div>
-            <div style="font-size:15px; font-weight:600; color:var(--white); margin-bottom:4px;">Iris Core or Pro (one-time)</div>
-            <div style="font-size:14px; color:var(--muted);">Pay once, keep forever. Core is $147. Pro is $997.</div>
+            <div style="font-size:15px; font-weight:600; color:var(--white); margin-bottom:4px;">Iris Pro or Plus (one-time)</div>
+            <div style="font-size:14px; color:var(--muted);">Pay once, keep forever. Core is free. Pro is $797. Plus is $1,497.</div>
           </div>
-          <div style="font-size:17px; font-weight:700; color:var(--gold); white-space:nowrap;">$147 - $997</div>
+          <div style="font-size:17px; font-weight:700; color:var(--gold); white-space:nowrap;">Free &ndash; $1,497</div>
         </div>
       </div>
       <div class="faq-item" style="border-bottom:1px solid var(--border); padding:20px 0;">
@@ -2093,12 +2102,12 @@
     <div style="margin-top:24px; padding:24px 28px; background:var(--surface); border:1px solid var(--border); box-shadow:0 4px 24px rgba(0,0,0,0.3);">
       <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px;">
         <div>
-          <div style="font-size:15px; font-weight:700; color:var(--white); margin-bottom:4px;">Your expected monthly cost (Core and Pro)</div>
+          <div style="font-size:15px; font-weight:700; color:var(--white); margin-bottom:4px;">Your expected monthly cost (Pro and Plus)</div>
           <div style="font-size:14px; color:var(--muted);">After your one-time purchase</div>
         </div>
         <div style="font-size:22px; font-weight:800; color:var(--gold); white-space:nowrap;">~$21/mo</div>
       </div>
-      <div style="margin-top:12px; font-size:13px; color:var(--muted); line-height:1.6;">Claude Pro ($20) + Telegram (~$1). Pinecone is free. That's the baseline. No hidden fees. No subscription from us. Enterprise is custom — reach out to learn more.</div>
+      <div style="margin-top:12px; font-size:13px; color:var(--muted); line-height:1.6;">Claude Pro ($20) + Telegram (~$1). Pinecone is free. That's the baseline. No hidden fees. No subscription from us. Core is free with no additional costs. Enterprise is $5,000 setup + $500/mo &mdash; application only.</div>
     </div>
   </div>
 </section>
@@ -2115,6 +2124,10 @@
       <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)">Do I need to know how to code?<span class="faq-arrow">&#9654;</span></div>
         <div class="faq-a">No. IRIS installs with a single action into Claude Desktop. No terminal. No Python. No setup scripts. You download the ZIP, drop it in, and it runs.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)">What's the difference between Core, Pro, and Plus?<span class="faq-arrow">&#9654;</span></div>
+        <div class="faq-a">Core is a free hosted Telegram bot &mdash; basic accountability, daily check-ins, zero setup. Just message the bot and go. Pro gives you the full AI operating system: 11 prebuilt skills, persistent memory, content creation, research, lead gen, task management, and the ability to build your own custom skills. Plus gives you everything in Pro plus a 90-minute 1:1 onboarding call, 30 days of private Slack support, and early access to new skills 60 days before Pro users.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)">How is this different from just using ChatGPT?<span class="faq-arrow">&#9654;</span></div>
@@ -2162,11 +2175,11 @@
       </div>
       <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)">Is this a subscription?<span class="faq-arrow">&#9654;</span></div>
-        <div class="faq-a">No. One-time payment. IRIS is yours. Future updates are included for all paying tiers.</div>
+        <div class="faq-a">Core is free forever. Pro and Plus are one-time payments &mdash; IRIS is yours for life. Enterprise is the only tier with a monthly component ($500/mo for ongoing maintenance and consultation). Future updates are included for all paying tiers.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)">What do I get immediately after purchase?<span class="faq-arrow">&#9654;</span></div>
-        <div class="faq-a">You get a download link instantly. Inside the ZIP is Iris's install file and a step-by-step installation guide. A confirmation email with your download link is sent to your inbox. From download to first conversation is about six steps.</div>
+        <div class="faq-a">For Core, just message the Telegram bot and you're in &mdash; no download needed. For Pro and Plus, you get a download link instantly. Inside the ZIP is Iris's install file and a step-by-step installation guide. A confirmation email with your download link is sent to your inbox. From download to first conversation is about six steps.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)">Can she track more than one goal?<span class="faq-arrow">&#9654;</span></div>
@@ -2208,7 +2221,7 @@
     <p>Install Iris. Tell her what you're working toward. Show up tomorrow and see what happens when someone actually holds you to it.</p>
     <button class="btn btn-primary" type="button" onclick="scrollToSection('pricing')">Stop avoiding. Get IRIS</button>
     <p class="cta-micro">Click once. You'll get your download link instantly. From unzip to first conversation is about six steps.</p>
-    <div class="footnote">One-time payment &middot; 7-day money-back guarantee &middot; No subscription</div>
+    <div class="footnote">Core is free &middot; Pro &amp; Plus are one-time &middot; 7-day money-back guarantee</div>
   </div>
 </section>
 
@@ -2218,7 +2231,7 @@
 ════════════════════════════════════════════ -->
 <section class="ps-section">
   <div class="ps-container">
-    <p class="ps-text"><strong>P.S.</strong> You already know what you need to do. You've known for a while. Iris is a one-time payment, runs on your own machine, and comes with a 7-day guarantee. The streak starts when you decide it does. <a href="#pricing">Get IRIS &rarr;</a></p>
+    <p class="ps-text"><strong>P.S.</strong> You already know what you need to do. You've known for a while. Iris Core is free &mdash; just message the bot and go. Pro and Plus are one-time payments, run on your own machine, and come with a 7-day guarantee. The streak starts when you decide it does. <a href="#pricing">Get IRIS &rarr;</a></p>
   </div>
 </section>
 
